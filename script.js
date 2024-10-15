@@ -34,11 +34,21 @@ window.addEventListener("scroll", function() {
       image.classList.remove("move-out");
     }
   });
-  
-$('.navTrigger').click(function () {
-    $(this).toggleClass('active');
-    console.log("Clicked menu");
-    $("#mainListDiv").toggleClass("show_list");
-    $("#mainListDiv").fadeIn();
 
+// Hamburger Menu Toggle
+document.getElementById("hamburger").addEventListener("click", function () {
+    document.querySelector(".nav-links").classList.toggle("open");
+    this.classList.toggle("toggle");
+});
+
+// Hide Top Bar on Scroll
+let lastScrollTop = 0;
+window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+        document.querySelector(".top-bar").classList.add("hide");
+    } else {
+        document.querySelector(".top-bar").classList.remove("hide");
+    }
+    lastScrollTop = scrollTop;
 });
