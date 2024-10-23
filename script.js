@@ -1,7 +1,7 @@
 // Initialize AOS
 AOS.init({
     duration: 1000,
-    once: true,
+    once: false,
 });
 
 // Smooth scrolling for navigation links
@@ -27,7 +27,7 @@ window.addEventListener('scroll', () => {
 
 // Function to add the "move-out" class when the scroll exceeds 25px
 window.addEventListener("scroll", function() {
-    const image = document.querySelector(".hero div.img"); // Target the image
+    const image = document.querySelector(".banner div.img"); // Target the image
     if (window.scrollY > 25) {
       image.classList.add("move-out");
     } else {
@@ -40,15 +40,20 @@ document.getElementById("hamburger").addEventListener("click", function () {
     document.querySelector(".nav-links").classList.toggle("open");
     this.classList.toggle("toggle");
 });
-
-// Hide Top Bar on Scroll
+// Hide Top Bar and Nav Bar on Scroll (combined logic)
 let lastScrollTop = 0;
 window.addEventListener("scroll", function () {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    const topBar = document.querySelector(".top-bar");
+    const navBar = document.querySelector("header");
+    
     if (scrollTop > lastScrollTop) {
-        document.querySelector(".top-bar").classList.add("hide");
+        topBar.classList.add("hide"); // Hide top bar when scrolling down
+        navBar.classList.add("hide"); // Hide nav bar when scrolling down
     } else {
-        document.querySelector(".top-bar").classList.remove("hide");
+        topBar.classList.remove("hide"); // Show top bar when scrolling up
+        navBar.classList.remove("hide"); // Show nav bar when scrolling up
     }
-    lastScrollTop = scrollTop;
+    lastScrollTop = scrollTop; // Update the last scroll position
 });
