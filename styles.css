@@ -290,7 +290,17 @@ section h1 {
     gap: 30px;
 }
 
-.car-card, .why-card,.tour-card {
+
+.why-card {
+    background-color: #fff;
+    width: 200px;
+    padding: 50px;
+    border-radius: 200px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card, .tour-card {
     background-color: #fff;
     width: 280px;
     padding: 20px;
@@ -324,17 +334,9 @@ section h1 {
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 50px;
+    padding: 0px;
 }
 
-.why-choose-us .card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 20%;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 /* Footer */
 footer {
