@@ -106,7 +106,7 @@ body {
 /* Banner Section */
 .banner {
     height: 100vh;
-    background: url('./R.jpeg') no-repeat center center;
+    background: url('./images/Rental-taxi-background.avif') no-repeat center center;
     background-size: cover;
     position: relative;
     display: flex;
