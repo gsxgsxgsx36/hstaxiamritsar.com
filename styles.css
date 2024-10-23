@@ -46,11 +46,11 @@ body {
     position: fixed;
     top: 10vh;
     left: 0;
-    width: 100%;
+    width: 99%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: rgba(168, 4, 4, 0.616); /* Glass effect */
     z-index: 99;
     transition: all 0.5s ease;
@@ -114,7 +114,7 @@ body {
     justify-content: center;
     align-items: left;
     padding-left: 20px;
-    background: rgba(112, 106, 106, 0.041);
+    z-index: 98;
 }
 
 .banner h2 {
@@ -157,6 +157,26 @@ div.hero-text1 p {
     background-color:#f6fa0e;
     transform: scale(1.05);
 }
+
+.car-image{
+    position: absolute;
+    right: 1vw;
+    bottom: 10vh;
+    width: 25vw;
+    height: 20vh;
+    animation: slideIn 1s ease forwards;
+    z-index: 100;
+    transition: transform 1s ease-out;
+}
+/* Apply the initial animation to the image */
+.banner > img.car-image {
+  animation: moveInFromRight 1.5s ease-out forwards; /* Move in from the right */
+}
+
+/* Class to move the image out to the left */
+.banner > img.car-image {
+  animation: moveOutToLeft 1s ease-in forwards; /* Move out to the left */
+}
 @keyframes moveInFromRight {
     0% {
       transform: translateX(100%); /* Start off-screen to the right */
@@ -169,7 +189,7 @@ div.hero-text1 p {
   }
   
   /* Define the keyframes for moving the image out to the left */
-  @keyframes moveOutToLeft {
+  keyframes moveOutToLeft {
     0% {
       transform: translateX(0); /* Start at the original position */
       opacity: 1;
@@ -180,34 +200,14 @@ div.hero-text1 p {
     }
   }
   
-  /* Apply the initial animation to the image */
-  .banner > img.car-image {
-  
-    animation: moveInFromRight 1.5s ease-out forwards; /* Move in from the right */
-    transition: transform 1s ease-out;
-  }
-  
-  /* Class to move the image out to the left */
-  img.move-out {
-    animation: moveOutToLeft 1s ease-in forwards; /* Move out to the left */
-  }
 .cta-button {
-    width: 9vw;
+    width: 19vw;
     background-color: #f39c12;
     padding: 10px 20px;
     border-radius: 5px;
     color: white;
     text-decoration: none;
     margin-top: 2px;
-}
-
-.car-image {
-    position: absolute;
-    right: -25vw;
-    bottom: 10vh;
-    width: 25vw;
-    height: 20vh;
-    animation: slideIn 1s ease forwards;
 }
 
 /* Quick Booking Form */
@@ -271,9 +271,9 @@ div.hero-text1 p {
 }
 /* Services Section */
 section {
-    padding: 10px;
+    padding: 60px;
     text-align: center;
-    min-height: 50vh;
+    min-height: 100vh;
 }
 
 section h1 {
