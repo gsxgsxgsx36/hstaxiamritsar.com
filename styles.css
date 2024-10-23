@@ -43,11 +43,17 @@ body {
 }
 
 .nav-bar {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.5); /* Glass effect */
+    background-color: rgba(168, 4, 4, 0.616); /* Glass effect */
+    z-index: 99;
+    transition: all 0.5s ease;
 }
 
 .nav-links {
@@ -100,7 +106,7 @@ body {
 /* Banner Section */
 .banner {
     height: 100vh;
-    background: url('./images/Rental-taxi-background.avif') no-repeat center center;
+    background: url('./R.jpeg') no-repeat center center;
     background-size: cover;
     position: relative;
     display: flex;
@@ -108,6 +114,7 @@ body {
     justify-content: center;
     align-items: left;
     padding-left: 20px;
+    background: rgba(112, 106, 106, 0.041);
 }
 
 .banner h2 {
@@ -115,14 +122,12 @@ body {
     color: white;
     animation: slideDown 1s ease;
 }
-.banner.container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 1.5);
+
+div.hero-text h1 {
+    top :0px;
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;   
 }
 
 .banner div.hero-text1 {
@@ -132,13 +137,7 @@ body {
     animation: fadeInUp 1s ease-out;
 }
 
-.banner div.hero-text h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    animation: fadeInDown 1s ease-out;
-}
-
-.banner .hero-text1 p {
+div.hero-text1 p {
     font-size: 1.2em;
     margin-bottom: 30px;
     animation: fadeInUp 1s ease-out;
@@ -154,7 +153,7 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.hero .btn:hover {
+.banner .btn:hover {
     background-color:#f6fa0e;
     transform: scale(1.05);
 }
@@ -182,11 +181,10 @@ body {
   }
   
   /* Apply the initial animation to the image */
-  .img > img {
-
-    opacity: 0; /* Initial opacity is 0 */
+  .banner > img.car-image {
+  
     animation: moveInFromRight 1.5s ease-out forwards; /* Move in from the right */
-    transition: opacity 0.5s, transform 1s ease-out;
+    transition: transform 1s ease-out;
   }
   
   /* Class to move the image out to the left */
@@ -200,7 +198,7 @@ body {
     border-radius: 5px;
     color: white;
     text-decoration: none;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
 .car-image {
@@ -208,7 +206,7 @@ body {
     right: -25vw;
     bottom: 10vh;
     width: 25vw;
-    height: 15vh;
+    height: 20vh;
     animation: slideIn 1s ease forwards;
 }
 
@@ -238,11 +236,44 @@ body {
     border-radius: 5px;
 }
 
+/* Responsive layout for mobile devices */
+@media (max-width: 600px) {
+    .car-image {
+        position: absolute;
+        right: -55vw;
+        bottom: 50vh;
+        width: 55vw;
+        height: 20vh;
+        animation: slideIn 1s ease forwards;
+    }
+    
+    .booking-form {
+        position: static; /* Changes position to follow page flow */
+        flex-direction: column; /* Stack input fields vertically */
+        width: 100%; /* Make form width fill the screen */
+        left: 0;
+        bottom: 0;
+        padding: 15px;
+        box-sizing: border-box; /* Ensure padding doesn't overflow screen width */
+    }
+
+    .booking-form input {
+        width: 100%; /* Make inputs take full width on mobile */
+        margin-bottom: 10px; /* Add spacing between each input field */
+        padding: 10px;
+    }
+
+    .booking-form button {
+        width: 100%; /* Button takes full width */
+        padding: 15px; /* Increase padding for easier tapping on mobile */
+        font-size: 16px; /* Larger font size for better readability */
+    }
+}
 /* Services Section */
 section {
-    padding: 100px 50px;
+    padding: 10px;
     text-align: center;
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 section h1 {
@@ -259,7 +290,7 @@ section h1 {
     gap: 30px;
 }
 
-.car-card, .tour-card {
+.car-card, .why-card,.tour-card {
     background-color: #fff;
     width: 280px;
     padding: 20px;
@@ -268,23 +299,23 @@ section h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.car-card:hover, .tour-card:hover {
+.car-card:hover, .why-card:hover, .tour-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.car-card img {
+.car-card img, .tour-card img, .why-card img {
     max-width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
-.car-card h3, .tour-card h3 {
+.car-card h3, .why-card h3, .tour-card h3 {
     margin-bottom: 10px;
     color: #333;
 }
 
-.car-card p, .tour-card p {
+.car-card p, .why-card h3, .tour-card p {
     color: #666;
     font-size: 0.95em;
 }
